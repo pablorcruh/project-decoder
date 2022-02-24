@@ -7,5 +7,6 @@ import java.util.UUID;
 
 public interface ModuleService{
 
-    List<ModuleModel> findAllModulesIntoCourse(UUID courseId);
+    void delete(ModuleModel moduleModel);
+
 }
