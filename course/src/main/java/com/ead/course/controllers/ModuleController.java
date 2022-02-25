@@ -79,6 +79,6 @@ public class ModuleController {
         if(!optionalModuleModel.isPresent()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Module not found for this course");
         }
-        return ResponseEntity.status(HttpStatus.OK).body(moduleService.findModuleIntoCourse(courseId, moduleId));
+        return ResponseEntity.status(HttpStatus.OK).body(optionalModuleModel.get());
     }
 }
