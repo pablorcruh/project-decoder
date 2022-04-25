@@ -45,6 +45,7 @@ public class AuthUserClient {
             ResponseEntity<ResponsePageDto<UserDto>> result = restTemplate.exchange(url, HttpMethod.GET, null, responseType);
             searchResult = result.getBody().getContent();
             log.debug("Response number of elements: {} ", searchResult.size());
+
         }catch(HttpStatusCodeException e){
             log.error("Error request /courses {}", e);
         }
@@ -64,5 +65,11 @@ public class AuthUserClient {
         courseUserDto.setCourseId(courseId);
         courseUserDto.setUserId(userId);
         restTemplate.postForObject(url, courseUserDto, String.class);
+    }
+
+    public void deleteCourseInAuthUser(UUID courseId) {
+        String url = REQUEST_URL_AUTHUSER + "/users/courses/" + courseId;
+        restTemplate.exchange(url, HttpMethod.DELETE, null, String.class);
+
     }
 }
