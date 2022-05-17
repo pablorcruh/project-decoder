@@ -65,6 +65,6 @@ public class CourseModel implements Serializable {
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "TB_COURSES_USERS",
             joinColumns = @JoinColumn(name = "course_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_d"))
+            inverseJoinColumns = @JoinColumn(name = "user_id"))
     private Set<UserModel> users;
 }
