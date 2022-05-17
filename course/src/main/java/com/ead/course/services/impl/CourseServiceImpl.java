@@ -37,7 +37,6 @@ public class CourseServiceImpl implements CourseService {
     @Transactional
     @Override
     public void delete(CourseModel courseModel) {
-        boolean deleteCourseUserInAuthUser = false;
         List<ModuleModel> moduleModelList = moduleRepository.findAllModulesIntoCourse(courseModel.getCourseId());
         if(!moduleModelList.isEmpty()){
             for(ModuleModel module: moduleModelList){
