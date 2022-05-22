@@ -20,7 +20,7 @@ spring:
       hibernate:
         show_sql:
   rabbitmq:
-    addresses: amqps://gqahrpce:UNfXetCBR_X_ilhwGb_CNehTyVfBZ-m2@shark.rmq.cloudamqp.com/gqahrpce
+    addresses: ${ead_broker}
 
 ead:
   api:
