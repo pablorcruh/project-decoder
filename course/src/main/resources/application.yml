@@ -18,7 +18,9 @@ spring:
         lob.non-contextual-creation: true
     properties:
       hibernate:
-        show_sql: true
+        show_sql:
+  rabbitmq:
+    addresses: amqps://gqahrpce:UNfXetCBR_X_ilhwGb_CNehTyVfBZ-m2@shark.rmq.cloudamqp.com/gqahrpce
 
 ead:
   api:
