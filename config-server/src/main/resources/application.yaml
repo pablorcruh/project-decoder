@@ -9,7 +9,7 @@ spring:
       server:
         git:
           uri: https://github.com/pablorcruh/project-decoder-config
-          default-label: master
+          default-label: main
           username: ${username}
           password: ${password}
 
