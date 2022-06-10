@@ -36,6 +36,9 @@ public class NotificationModel implements Serializable {
     @Enumerated(EnumType.STRING)
     private NotificationStatus notificationStatus;
 
+    public NotificationModel() {
+    }
+
     public UUID getNotificationId() {
         return notificationId;
     }
