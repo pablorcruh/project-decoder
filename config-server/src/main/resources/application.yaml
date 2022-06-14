@@ -14,6 +14,9 @@ spring:
           password: ${password}
 
 ead:
+  configServer:
+    username: ${usernameConfigServer}
+    password: ${passwordConfigServer}
   serviceRegistry:
     username: ${usernameServiceRegistry}
     password: ${passwordServiceRegistry}
