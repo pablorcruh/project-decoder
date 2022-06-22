@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class UserDetailsImpl implements UserDetails {
 
-    private UUID id;
+    private UUID userId;
 
     private String fullName;
 

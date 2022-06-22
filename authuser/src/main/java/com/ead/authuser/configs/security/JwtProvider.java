@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
-@Component
 @Log4j2
+@Component
 public class JwtProvider {
 
     @Value("${ead.auth.jwtSecret}")
@@ -47,7 +47,7 @@ public class JwtProvider {
         }catch(IllegalArgumentException e){
             log.error("JWT claims string is empty: {}", e.getMessage());
         }
-        return false;
+        return true;
     }
 
 }
