@@ -1,4 +1,4 @@
-package com.ead.authuser.configs.security;
+package com.ead.notification.configs.security;
 
 import io.jsonwebtoken.*;
 import lombok.extern.log4j.Log4j2;
@@ -15,28 +15,12 @@ public class JwtProvider {
 
     @Value("${ead.auth.jwtSecret}")
     private String jwtSecret;
-
-    @Value("${ead.auth.jwtExpirationMs}")
-    private int jwtExpirationMs;
-
-    public String generateJwt(Authentication authentication){
-        UserDetailsImpl userPrincipal = (UserDetailsImpl) authentication.getPrincipal();
-        final String roles = userPrincipal.getAuthorities().stream()
-                .map(role -> {
-                    return role.getAuthority();
-                }).collect(Collectors.joining(","));
-
-        return Jwts.builder()
-                .setSubject((userPrincipal.getUserId().toString()))
-                .claim("roles", roles)
-                .setIssuedAt(new Date())
-                .setExpiration(new Date((new Date()).getTime() + jwtExpirationMs))
-                .signWith(SignatureAlgorithm.HS512, jwtSecret)
-                .compact();
-    }
-
     public String getSubjectJwt(String token){
         return Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token).getBody().getSubject();
+    }
+
+    public String getClaimNameJwt(String token, String claimName){
+        return Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token).getBody().get(claimName).toString();
     }
 
     public boolean validateJwt(String authToken){
