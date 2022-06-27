@@ -1,29 +1,5 @@
-server:
-  port: 8888
-
 spring:
+  profiles:
+    active: prod
   application:
     name: ead-config-server
-  cloud:
-    config:
-      server:
-        git:
-          uri: https://github.com/pablorcruh/project-decoder-config
-          default-label: main
-          username: ${username}
-          password: ${password}
-
-ead:
-  configServer:
-    username: ${usernameConfigServer}
-    password: ${passwordConfigServer}
-  serviceRegistry:
-    username: ${usernameServiceRegistry}
-    password: ${passwordServiceRegistry}
-
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: 'http://${ead.serviceRegistry.username}:${ead.serviceRegistry.password}@localhost:8761/eureka'
-  instance:
-    hostname: localhost
