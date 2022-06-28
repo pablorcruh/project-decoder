@@ -5,8 +5,8 @@ server:
 
 ead:
   serviceRegistry:
-    username: ${username}
-    password: ${password}
+    username: ${EUREKA_USERNAME}
+    password: ${EUREKA_PASSWORD}
 
 eureka:
   client:
